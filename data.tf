@@ -4,19 +4,39 @@ resource "azurerm_cosmosdb_account" "example" {
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   offer_type          = "Standard"
-  kind                = "GlobalDocumentDB"
-  enable_automatic_failover = false
-  
-  consistency_policy {
-    consistency_level = "Session"
+  kind                = "MongoDB"
+
+  enable_automatic_failover = true
+
+  capabilities {
+    name = "EnableAggregationPipeline"
   }
 
   capabilities {
-    name = "EnableTable"
+    name = "mongoEnableDocLevelTTL"
   }
 
-  virtual_network_rule {
-    id                            = azurerm_subnet.example.id
-    ignore_missing_vnet_service_endpoint = true
+  capabilities {
+    name = "MongoDBv3.4"
+  }
+
+  capabilities {
+    name = "EnableMongo"
+  }
+
+  consistency_policy {
+    consistency_level       = "BoundedStaleness"
+    max_interval_in_seconds = 300
+    max_staleness_prefix    = 100000
+  }
+
+  geo_location {
+    location          = "eastus"
+    failover_priority = 1
+  }
+
+  geo_location {
+    location          = "westus"
+    failover_priority = 0
   }
 }
