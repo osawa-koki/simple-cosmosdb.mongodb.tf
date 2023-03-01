@@ -13,7 +13,7 @@ resource "azurerm_network_security_group" "example" {
     source_address_prefix      = var.allowed_ip_address
     source_port_range          = "*"
     destination_address_prefix = azurerm_cosmosdb_account.example.endpoint
-    destination_port_range     = "443"
+    destination_port_range     = "*"
   }
 
   security_rule {
@@ -25,6 +25,6 @@ resource "azurerm_network_security_group" "example" {
     source_address_prefix      = "*"
     source_port_range          = "*"
     destination_address_prefix = "*"
-    destination_port_range     = "443"
+    destination_port_range     = "*"
   }
 }
