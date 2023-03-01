@@ -8,13 +8,6 @@ resource "azurerm_cosmosdb_account" "example" {
 
   enable_automatic_failover = true
 
-  enable_free_tier = true
-  public_network_access_enabled = false
-  is_virtual_network_filter_enabled = true
-  virtual_network_rule {
-    id = azurerm_subnet.example.id
-  }
-
   capabilities {
     name = "EnableAggregationPipeline"
   }
@@ -38,12 +31,8 @@ resource "azurerm_cosmosdb_account" "example" {
   }
 
   geo_location {
-    location          = "eastus"
-    failover_priority = 1
-  }
-
-  geo_location {
-    location          = "westus"
+    location          = "japanwest"
     failover_priority = 0
   }
+
 }
