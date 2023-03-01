@@ -3,7 +3,7 @@
 🪐🪐🪐 CosmosDB(MongoDB)をAzure上に構築してみる。  
 Let's NoSQL!  
 
-![成果物](./docs/img/fruit.png)  
+![成果物](./docs/img/fruit.gif)  
 
 ## 実行方法
 
