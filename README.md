@@ -3,6 +3,8 @@
 🪐🪐🪐 CosmosDB(MongoDB)をAzure上に構築してみる。  
 Let's NoSQL!  
 
+![成果物](./docs/img/fruit.png)  
+
 ## 実行方法
 
 最初に`./terraform`ディレクトリに移動して、以下のコマンドを実行します。  
